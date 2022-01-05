@@ -1,4 +1,5 @@
 import React,{Component} from "react";
+import { NavLink } from 'react-router-dom';
 import "./App.css";
 
 class Start extends Component{
@@ -26,6 +27,9 @@ class Start extends Component{
    render(){
        return(
            <div className="App">
+               <nav>
+            <button><NavLink to="/home">Home</NavLink></button>
+            </nav>
                 {/* <h1>{this.props.Lname}</h1>
                 <h2>{this.state.data}</h2>
                 <button onClick={()=>this.updateSet()}>Update</button> */}

@@ -2,6 +2,7 @@ import './App.css';
 import Home from "./Home";
 import Start from "./Start";
 import Header from "./Header";
+import Parent from "./Parent"
 import {Routes, Route} from "react-router-dom";
 
 function App() {
@@ -11,6 +12,7 @@ function App() {
           <Route path="/" element={<Header />}/>
           <Route path="/home" element={<Home />} />
           <Route path="/start" element={<Start favcol="Yellow" Lname="Bhavik Gajdhar" />} />
+          <Route path="/parent" element={<Parent/>} />
         </Routes>      
     </div>
   );

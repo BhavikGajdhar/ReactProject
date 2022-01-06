@@ -13,18 +13,18 @@ const Home=(props)=>{
     //     this.setState({Fname : 'Bhavik'});
     //     setName("bhavik")
     // }
-    useEffect(() => {
-        setTimeout(() => {
-        setCount((count) => count + 1);
-        }, 1000);
-    });
+    // useEffect(() => {
+    //     setTimeout(() => {
+    //     setCount((count) => count + 1);
+    //     }, 1000);
+    // });
     return(
         <>
             <h1>Home</h1>
             
             <input type="text" onChange={(e) => {setName(e.target.value)}}></input>
             <input type="text" onChange={(e) => {setLame(e.target.value)}}></input>
-            <h1>I've rendered {count} times!</h1>
+            {/* <h1>I've rendered {count} times!</h1> */}
 
             <button onClick={getData}>Submit</button>
         </>

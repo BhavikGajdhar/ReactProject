@@ -13,7 +13,7 @@ function UserList (props) {
 
     useEffect(() => {
        getAllUsers();
-    },[users]);
+    },[]);
 
     const getAllUsers = async() =>{
         const res = await getUserData();            

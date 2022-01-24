@@ -1,5 +1,5 @@
 import axios from "axios";
-import { onGetById } from "../actions/index";
+import { onGetById } from "../actions";
 
 const url = "http://localhost:3000/user";
 
@@ -33,21 +33,16 @@ export const putUserData = async (id, data) => {
 };
 
 export const getUserDataById = (id) => {
-
-  return (dispatch) => {
-
-    debugger
-    console.log(url+"/"+id,"url");
-
-    axios.get(url+"/"+id).then(
+    return (dispatch) => {
+    const url1 = url + "/" + id
+    axios.get(url1).then(
 
       (response) => {
-       console.log(response);
-        const customers = response && response.data;
-
+        const customers = response ? response.data : [];
+        console.log(customers, "customers");
         dispatch(onGetById(customers));
-
       },
 
     );
-  }}
+  }
+}

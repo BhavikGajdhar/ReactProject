@@ -11,6 +11,7 @@ function Header() {
        <button> <NavLink to="/home">Home</NavLink></button>
        <button><NavLink to="/start">Start</NavLink></button>
        <button><NavLink to="/parent">Parent</NavLink></button>
+       <button><NavLink to="/list">UsreList</NavLink></button>
       </nav>
         <img src={logo} className="App-logo" alt="logo" />
         <p>

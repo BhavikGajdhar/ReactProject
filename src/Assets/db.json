@@ -1,7 +1,7 @@
 {
   "user": [
     {
-      "firstName": "Bhavik45",
+      "firstName": "Bhavik",
       "lastName": "Gajdhar",
       "username": "Bhavik",
       "email": "bhavik@gmail.com",
@@ -23,6 +23,22 @@
       "email": "d@gmail.com",
       "phone": "56325897410",
       "id": 4
+    },
+    {
+      "firstName": "Gurjant",
+      "lastName": "Sandhu",
+      "username": "Gurjant",
+      "email": "b@gmail.com",
+      "phone": "7896541230",
+      "id": 5
+    },
+    {
+      "firstName": "Ashish",
+      "lastName": "Jain",
+      "username": "Ashish",
+      "email": "ashish@gmail.com",
+      "phone": "4569871230",
+      "id": 6
     }
   ]
 }

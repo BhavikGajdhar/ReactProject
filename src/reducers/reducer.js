@@ -1,39 +1,26 @@
-import {postUserData ,putUserData,deleteUserData,getUserDataById} from '../Service/Api';
-let initialization = {
+//import {postUserData ,putUserData,deleteUserData,getUserDataById} from '../Service/Api';
+const initialState = {
      value:[]
-};
+ }
 
 
-const onAction = async (state = initialization,action)=>{
-     debugger
+const onAction = (state = initialState,action) =>{
+   debugger
     switch(action.type){
+       case "LIST"  :
+          return {...state , value:action.payload}
        case "SUBMIT": 
-            state = action.payload;
-            console.log(state);
-            await postUserData(state);
-            break;
+          return {...state , value:action.payload}
        case "UPDATE":
-            state = action.payload;
-            console.log(state);
-            await putUserData(state.id,state);
-            break;
+         // const copyData = action.payload;
+          return {...state , value:action.payload}
        case "DELETE":
-            state = action.payload;
-            console.log(state);
-            await deleteUserData(state);
-            break;
+          return {...state , value:action.payload}
        case "PATCH_VALUE":
-          //let copyData = action.payload.id;
-            // const {id,data}=action.payload;
-            //let res  = await getUserDataById(action.payload.id);
-          //   state = res.data;
-         //  console.log(res.data);
-            return {...state,
-               value:{data : action.payload}
-            }
+            return {...state , value:action.payload}
        default : 
             return state;
     }
 
 }
-export  default onAction; 
+export  default  onAction; 

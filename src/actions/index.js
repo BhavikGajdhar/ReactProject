@@ -1,3 +1,9 @@
+export const onList = (data) => {
+    return {
+        type: "LIST",
+        payload: data
+    }
+}
 export const onSubmit = (data) => {
     return {
         type: "SUBMIT",
@@ -17,7 +23,6 @@ export const onDelete = (data) => {
     }
 }
 export const onGetById = (user) => {
-    debugger
     return {
         type: "PATCH_VALUE",
         payload: user

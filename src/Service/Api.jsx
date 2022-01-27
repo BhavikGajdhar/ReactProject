@@ -1,45 +1,50 @@
 import axios from "axios";
-import { onGetById } from "../actions";
+import { onGetById,onUpdate,onSubmit,onDelete,onList } from "../actions/index";
 
-const url = "http://localhost:3000/user";
+const url = "http://localhost:4500/user";
 
-export const getUserData = async () => {
-  return await axios.get(url);
+export const getUserData = () => {
+  return function(dispatch){
+   return axios.get(url).then((response)=>{
+      const customers = response.data ;
+      dispatch(onList(customers));
+    });
+  } 
 };
-export const postUserData = async (props) => {
-  return await axios.post(url, props);
+export const postUserData =  (data) => {
+  return function(dispatch){
+   return axios.post(url,data ).then((response)=>{
+      const customers =  response ? response.data : [];
+      dispatch(onSubmit(customers));
+    });
+  } 
 };
-export const deleteUserData = async (id) => {
-  return await axios.delete(url + "/" + id);
+export const deleteUserData = (id) => {
+  return function(dispatch){
+    return axios.delete(url + "/" + id).then((response)=>{
+      const customers = response ? response.data : [];
+      dispatch(onDelete(customers));
+    });
+  } 
 };
-// export const getUserDataById = (id) => {
-//   debugger;
-//   // return (dispatch) => {
-//   //  await axios
-//   //     .get(url + "/" + id)
-//   //     .then((response) => {
-//   //       dispatch(onGetById(response.data));
-//   //     })
-//   //     .catch((error) => {
-//   //       console.log("Error");
-//   //     });
-//   // };
-//   return await axios.get(url + "/" + id);
-// };
 
-
-export const putUserData = async (id, data) => {
-  return await axios.put(url + "/" + id, data);
+export const putUserData =  (id, data) => {
+  debugger
+  return function(dispatch){
+   return axios.put(url + "/" + id, data).then((response)=>{
+      const customers = response ? response.data : [];
+      dispatch(onUpdate(customers));
+    });
+  } 
 };
 
 export const getUserDataById = (id) => {
-    return (dispatch) => {
+    return function  (dispatch)  {
     const url1 = url + "/" + id
-    axios.get(url1).then(
+    return axios.get(url1).then(
 
       (response) => {
         const customers = response ? response.data : [];
-        console.log(customers, "customers");
         dispatch(onGetById(customers));
       },
 

@@ -3,23 +3,21 @@ import { postUserData, getUserDataById,putUserData} from "../Service/Api";
 import { NavLink } from 'react-router-dom';
 import { useParams } from "react-router-dom";
 import { useSelector,useDispatch} from "react-redux";
-import { onSubmit,onUpdate,onGetById} from "../actions/index"
-import store from "../content";
-import onAction from "../reducers/reducer";
+//import { onSubmit,onUpdate,onGetById} from "../actions/index"
 import { connect } from 'react-redux';
 
 
 
-
  function AddUser (props) {
+ //const myState = useSelector((state) => state.onAction.value);
 
-     const myState = useSelector((state) => state.onAction);
-    
-    const dispatch = useDispatch();
+    //const dispatch = useDispatch();
 
     const { id } = useParams();
 
-    let initialValue={
+   // const Data = props.data;
+
+    const initialValue={
         firstName:"",
         lastName:"",
         username:"",
@@ -30,19 +28,25 @@ import { connect } from 'react-redux';
     const disabled = "disabled";
     
 
-    let [title, setTitle] = useState(initialValue);
+    const [title, setTitle] = useState(initialValue);
 
     useEffect(() => {
         if(id){
-            debugger
-             props.getSampleData(id);
-            //console.log(props.initialization);
-                //setTitle(res.data);
+           props.getSampleData(id);
         }
-    },[])
-    // componentDidMount = () => {
-    //     props.getSampleData(id);
-    // }
+    },[]); 
+
+    useEffect(()=>{
+        if(id){
+          setTitle(props.data);
+        }
+    },[props.data]);
+        
+    // if(Data){
+    //         Data.map(s => ({ ...s, setTitle({s}) }));
+    //     }
+        
+
 
     //  const  postData=async() =>{
     //      debugger
@@ -50,10 +54,8 @@ import { connect } from 'react-redux';
     //     //await postUserData(title);
     // }
     
-    // const getUsersById = async() =>{
-    //         // const res = await getUserDataById(id);
-    //         //console.log(res.data);
-    //         setTitle(myState); 
+    // const getUsersById = () =>{
+           
     // } 
 
     // const putData = async() => {
@@ -85,7 +87,7 @@ import { connect } from 'react-redux';
     }
     
      return(
-         <>
+         <div>
          <form>
             <h5>First Name</h5>
             <input type="text" name="firstName" value={title.firstName} onChange={handleChange}/>
@@ -106,21 +108,25 @@ import { connect } from 'react-redux';
             <input type="text" name="phone" value={title.phone} onChange={handleChange}/>
             <div>
                 {
-                   (id) ?  <NavLink to="/list"><button type="button" onClick={() => dispatch(onUpdate(title))}>Update</button></NavLink> :
-                           <NavLink to="/list"><button type="button" onClick={() => dispatch(onSubmit(title))}>Submit</button></NavLink>
+                   (id) ?  <NavLink to="/list"><button type="button" onClick={() => props.putSampleData(title.id,title)}>Update</button></NavLink> :
+                           <NavLink to="/list"><button type="button" onClick={() => props.addSampleData(title)}>Submit</button></NavLink>
                 }     
             </div>
-            <span>{props.initialization}</span>
          </form>
-         </>
+         </div>
      )
  }
+
 const mapStateToProps = (state) => ({
-    initialization: state.onAction.initialization,
+    data : state.onAction.value,
 });
+
 const mapDispatchToProps = (dispatch) => ({
-    getSampleData: (id) => dispatch(getUserDataById(id))
-    //removeItem: (itemId) => dispatch(deleteItemAction(itemId))
+    getSampleData: (id) => dispatch(getUserDataById(id)),
+    putSampleData: (id,title) =>   dispatch(putUserData(id,title)),
+    addSampleData: (title) => dispatch(postUserData(title))
 });
- const SamplePageComp = connect(mapStateToProps,mapDispatchToProps)(AddUser);
- export default SamplePageComp;
+
+
+ export default connect(mapStateToProps,mapDispatchToProps)(AddUser);
+ export { AddUser };

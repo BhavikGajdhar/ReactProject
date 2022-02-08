@@ -2,7 +2,7 @@ import React, { useState,useEffect } from "react";
 import { postUserData, getUserDataById,putUserData} from "../Service/Api";
 import { NavLink } from 'react-router-dom';
 import { useParams } from "react-router-dom";
-import { useSelector,useDispatch} from "react-redux";
+//import { useSelector,useDispatch} from "react-redux";
 //import { onSubmit,onUpdate,onGetById} from "../actions/index"
 import { connect } from 'react-redux';
 
@@ -16,6 +16,7 @@ import { connect } from 'react-redux';
     const { id } = useParams();
 
    // const Data = props.data;
+   const disabled = "disabled";
 
     const initialValue={
         firstName:"",
@@ -25,7 +26,6 @@ import { connect } from 'react-redux';
         phone:"",
     };
 
-    const disabled = "disabled";
     
 
     const [title, setTitle] = useState(initialValue);
@@ -38,7 +38,14 @@ import { connect } from 'react-redux';
 
     useEffect(()=>{
         if(id){
-          setTitle(props.data);
+            if(props.data){
+
+                setTitle(props.data);
+                // console.log(props.data);
+                // let Data =props.data.filter((item) => item.id == id);
+                // let value1 = (Data.length>0)?Data[0]:{};
+                // console.log(value1);
+            }
         }
     },[props.data]);
         
@@ -72,7 +79,7 @@ import { connect } from 'react-redux';
                 [name]: value,
             });
         }else{
-            var x;
+            let x;
             if([name] == 'firstName'){ 
                 x=value;
                 document.getElementById('autofill').value = x;
@@ -108,8 +115,8 @@ import { connect } from 'react-redux';
             <input type="text" name="phone" value={title.phone} onChange={handleChange}/>
             <div>
                 {
-                   (id) ?  <NavLink to="/list"><button type="button" onClick={() => props.putSampleData(title.id,title)}>Update</button></NavLink> :
-                           <NavLink to="/list"><button type="button" onClick={() => props.addSampleData(title)}>Submit</button></NavLink>
+                   (id) ?  <NavLink to="/list"><button type="submit" onClick={() => props.putSampleData(title.id,title)}>Update</button></NavLink> :
+                           <NavLink to="/list"><button type="submit" onClick={() => props.addSampleData(title)}>Submit</button></NavLink>
                 }     
             </div>
          </form>
@@ -118,7 +125,7 @@ import { connect } from 'react-redux';
  }
 
 const mapStateToProps = (state) => ({
-    data : state.onAction.value,
+    data : state.onAction.patch,
 });
 
 const mapDispatchToProps = (dispatch) => ({

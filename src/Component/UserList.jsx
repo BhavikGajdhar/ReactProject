@@ -1,26 +1,27 @@
 import { deleteUserData,getUserData } from "../Service/Api";
 import { useEffect,useState } from "react";
 import { NavLink } from 'react-router-dom';
-// import {useSelector, useDispatch} from 'react-redux';
+ //import {useSelector, useDispatch} from 'react-redux';
 // import { onDelete} from "../actions/index";
 import { connect } from 'react-redux';
 
 function UserList (props) {
 
-  //  const myState = useSelector((state) => state.onAction);
-    //const dispatch = useDispatch();
+    // const myState = useSelector((state) => state.onAction.value);
+    // const myState = useSelector((state) => return {state.onAction.value});
+    // const dispatch = useDispatch();
 
     const[users,setUsers] = useState([]);
 
 
     useEffect(() => {
         props.getData();
+        console.log(props.data);
     },[]);
+    
     useEffect(() => {
-        //console.log(props.data)
-        if(props.data){
-           setUsers(props.data);
-        }
+            console.log(props.data);
+            setUsers(props.data);    
     },[props.data]);
 
     // const getAllUsers = async() =>{
@@ -48,7 +49,7 @@ function UserList (props) {
                     </tr>
                 </thead>
                 <tbody>
-                    {users.map((user,i)=>{
+                    {users && users.map((user,i)=>{
                     return(
                         <tr key={i}>
                         <td>{user.id}</td>
@@ -56,7 +57,7 @@ function UserList (props) {
                         <td>{user.username}</td>
                         <td>{user.email}</td>
                         <td>{user.phone}</td>
-                        <td><NavLink to={{pathname:`/edit/${user.id}`}}><button>Edit</button></NavLink></td>
+                        <td><NavLink to={`/edit/${user.id}`}><button>Edit</button></NavLink></td>
                         <td><button type="button" onClick={()=> props.removeItem(user.id)}>Delete</button></td>
                         </tr>
                     )

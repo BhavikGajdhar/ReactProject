@@ -4,6 +4,7 @@ import Child from "./Child";
 class Parent extends Component  {
 
   constructor(props) {
+    console.log(props);
     super(props);
     this.state = {
       parentName: "parent",

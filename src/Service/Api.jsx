@@ -5,49 +5,51 @@ const url = "http://localhost:4500/user";
 
 export const getUserData = () => {
   return function(dispatch){
-   return axios.get(url).then((response)=>{
-      const customers = response.data ;
+    axios.get(url).then((response)=>{
+      const customers =  response ? response.data : [];
       dispatch(onList(customers));
+    }).catch((error)=>console.log(error));
+  } 
+};
+
+export const deleteUserData = (id) => {
+  return function(dispatch){
+     axios.delete(url + "/" + id).then((response)=>{
+      const customers = response ? response.data : [];
+      dispatch(onDelete(id));
     });
   } 
 };
+
 export const postUserData =  (data) => {
   return function(dispatch){
-   return axios.post(url,data ).then((response)=>{
+    axios.post(url,data ).then((response)=>{
       const customers =  response ? response.data : [];
       dispatch(onSubmit(customers));
     });
   } 
 };
-export const deleteUserData = (id) => {
-  return function(dispatch){
-    return axios.delete(url + "/" + id).then((response)=>{
-      const customers = response ? response.data : [];
-      dispatch(onDelete(customers));
-    });
-  } 
-};
-
-export const putUserData =  (id, data) => {
-  debugger
-  return function(dispatch){
-   return axios.put(url + "/" + id, data).then((response)=>{
-      const customers = response ? response.data : [];
-      dispatch(onUpdate(customers));
-    });
-  } 
-};
 
 export const getUserDataById = (id) => {
-    return function  (dispatch)  {
-    const url1 = url + "/" + id
-    return axios.get(url1).then(
-
-      (response) => {
+  return function  (dispatch)  { 
+     axios.get(url + "/" + id).then((response) => {
         const customers = response ? response.data : [];
         dispatch(onGetById(customers));
-      },
-
-    );
+    });
   }
-}
+};
+
+export const putUserData =  (id, data,navigate) => {
+  debugger
+  return function(dispatch){
+    axios.put(url + "/" + id, data)
+    .then((response)=>{
+      const customers = response ? response.data : [];
+      dispatch(onUpdate(customers));
+      navigate("/list");
+    });
+
+    //getUserData();
+    
+  } 
+};

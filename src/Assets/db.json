@@ -4,25 +4,25 @@
       "firstName": "Bhavik",
       "lastName": "Gajdhar",
       "username": "Bhavik",
-      "email": "bhavik@gmail.com",
-      "phone": "4563210987",
+      "email": "bhavikgajdhar@gmail.com",
+      "phone": "8200684501",
       "id": 1
     },
     {
-      "firstName": "Jigar",
-      "lastName": "Patel",
-      "username": "Jigar",
+      "firstName": "Jigish",
+      "lastName": "Contractor",
+      "username": "Jigish",
       "email": "j@gmail.com",
-      "phone": "4563210789",
-      "id": 3
+      "phone": "8200684501",
+      "id": 2
     },
     {
-      "firstName": "Darsh",
-      "lastName": "Modi",
-      "username": "Darsh",
-      "email": "d@gmail.com",
-      "phone": "56325897410",
-      "id": 4
+      "firstName": "Yasin",
+      "lastName": "Hirani",
+      "username": "Yasin",
+      "email": "m@gmail.com",
+      "phone": "1236547890",
+      "id": 3
     },
     {
       "firstName": "Gurjant",
@@ -30,15 +30,31 @@
       "username": "Gurjant",
       "email": "b@gmail.com",
       "phone": "7896541230",
+      "id": 4
+    },
+    {
+      "firstName": "Darsh",
+      "lastName": "Patel",
+      "username": "Darsh",
+      "email": "ashish@gmail.com",
+      "phone": "8200684501",
       "id": 5
     },
     {
       "firstName": "Ashish",
-      "lastName": "Jain",
+      "lastName": "Gajdhar",
       "username": "Ashish",
-      "email": "ashish@gmail.com",
-      "phone": "4569871230",
+      "email": "m@gmail.com",
+      "phone": "1236547890",
       "id": 6
+    },
+    {
+      "firstName": "Yahin",
+      "lastName": "Hirani",
+      "username": "Yahin",
+      "email": "y@gmail.com",
+      "phone": "999666554454",
+      "id": 7
     }
   ]
 }

@@ -13,7 +13,7 @@ export const onSubmit = (data) => {
 export const onUpdate = (data) => {
     return {
         type: "UPDATE",
-        payload: data
+        payload: data,
     }
 }
 export const onDelete = (data) => {

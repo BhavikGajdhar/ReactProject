@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
-import  onAction  from '../reducers/reducer';
+import  {CreateUserReducer}  from '../Component/User/Reducer/UserReducer';
 
 /** Here combine both reducers where one is came from commons */
-const combineReducer = { onAction };
+const combineReducer = { CreateUserReducer };
 export const rootReducer = combineReducers(combineReducer);

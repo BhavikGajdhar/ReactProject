@@ -1,6 +1,6 @@
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import { NavLink } from 'react-router-dom';
-import './App.css';
+// import '../.././App';
 
 
 function Header() {
@@ -8,12 +8,12 @@ function Header() {
     <div className="App">
       <header className="App-header">
       <nav>
-       <button> <NavLink to="/home">Home</NavLink></button>
-       <button><NavLink to="/start">Start</NavLink></button>
+       <button> <NavLink to="/UserList">UserList</NavLink></button>
+       {/* <button><NavLink to="/start">Start</NavLink></button>
        <button><NavLink to="/parent">Parent</NavLink></button>
-       <button><NavLink to="/list">UsreList</NavLink></button>
+       <button><NavLink to="/list">UsreList</NavLink></button> */}
       </nav>
-        <img src={logo} className="App-logo" alt="logo" />
+        {/* <img src={logo} className="App-logo" alt="logo" /> */}
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
@@ -30,4 +30,4 @@ function Header() {
     </div>
   );
 }
-export default Header;
+export {Header as Header};

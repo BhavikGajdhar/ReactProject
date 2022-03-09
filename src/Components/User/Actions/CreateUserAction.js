@@ -1,9 +1,9 @@
-import {CreateUserActions} from "../Constants/Constants";
+import {createUserActions} from "../Constants/Constants";
 
 /** Listing User Data Action  */
 export const listUserData = (data) => {
     return {
-      type: CreateUserActions.GET_USER_DATA,
+      type: createUserActions.GET_USER_DATA,
       payload: data,
     };
 };
@@ -11,7 +11,7 @@ export const listUserData = (data) => {
 /** Delete User Data Action  */
 export const deleteUserData = (data) => {
     return {
-      type: CreateUserActions.DELETE_USER_DATA,
+      type: createUserActions.DELETE_USER_DATA,
       payload: data,
     };
 };
@@ -19,7 +19,7 @@ export const deleteUserData = (data) => {
 /** Submit User Data Action  */
 export const submitUserData = (data) => {
   return {
-    type: CreateUserActions.SUBMIT_USER_DATA,
+    type: createUserActions.SUBMIT_USER_DATA,
     payload: data,
   };
 };
@@ -27,7 +27,7 @@ export const submitUserData = (data) => {
 /** Patch Value Of Form Action  */
 export const getIdUserData =(data)=>{
   return{
-    type:CreateUserActions.GET_ID_USER_DATA,
+    type:createUserActions.GET_ID_USER_DATA,
     payload : data,
   }
 }
@@ -35,7 +35,7 @@ export const getIdUserData =(data)=>{
 /** Updated Value Of User List Action  */
 export const updateUserData = (data) =>{
   return{
-    type:CreateUserActions.UPDATE_USER_DATA,
+    type:createUserActions.UPDATE_USER_DATA,
     payload : data,
   }
 }

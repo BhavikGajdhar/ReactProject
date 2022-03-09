@@ -48,8 +48,6 @@ class UserFormPresentation extends Component {
         >
           {(formik) => {
             const { values, handleChange } = formik;
-            let x;
-            x = values.firstName;
             return (
               <Form>
                 <div className="px-6 md:px-12 py-4">
@@ -122,12 +120,10 @@ class UserFormPresentation extends Component {
                             value={
                               this.props.initialValues
                                 ? values.username
-                                : (values.username = x)
+                                : (values.username = values.firstName)
                             }
                             // onChange={handleChange}
-                            disabled={ this.props.initialValues
-                                ? values.username
-                                : (values.username = x)}
+                            disabled={ values.username}
                             className="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md"
                           />
                         </div>
@@ -150,7 +146,10 @@ class UserFormPresentation extends Component {
                             type="text"
                             id="email"
                             name="email"
-                            value={values.email}
+                            value={this.props.initialValues
+                              ? values.email
+                              : (values.email)}
+                            disable={values.email}
                             onChange={handleChange}
                             className="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md"
                           ></Field>

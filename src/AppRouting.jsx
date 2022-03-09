@@ -6,13 +6,13 @@ import {
     useNavigate
 } from "react-router-dom";
 
-const HeaderComponent = lazy(() => import('./Component/Header/Header').
+const HeaderComponent = lazy(() => import('./Components/Header/Header').
     then(({ Header }) => ({ default: Header })));
 
-const UserListComponent = lazy(() => import('./Component/User/User-List-Container/UserListContainer').
+const UserListComponent = lazy(() => import('./Components/User/User-List-Container/UserListContainer').
     then(({ UserListContainer }) => ({ default: UserListContainer })));
 
-const UserFormComponent = lazy(() => import('./Component/User/User-Form-Container/UserFormContainer').
+const UserFormComponent = lazy(() => import('./Components/User/User-Form-Container/UserFormContainer').
     then(({ UserFormContainer }) => ({ default: UserFormContainer })));
 
 const AppRouting=(props)=>{

@@ -31,7 +31,7 @@ class UserFormContainer extends Component {
   };
 
   /** Go navigation back Form Current Page  */
-  Navigate = () => {
+  navigate = () => {
     this.props.navigate("/UserList");
   };
 
@@ -42,7 +42,7 @@ class UserFormContainer extends Component {
                 initialValues={this.props.userDataById}
                 save={this.saveValue}
                 update={this.updateValue}
-                navigate={this.Navigate}
+                navigate={this.navigate}
             />
         </div>
     );
@@ -50,7 +50,7 @@ class UserFormContainer extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  userDataById: state.CreateUserReducer.idByUserData,
+  userDataById: state.createUserReducer.idByUserData,
 });
 
 const mapDispatchToProps = (dispatch) => ({

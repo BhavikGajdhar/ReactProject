@@ -1,5 +1,5 @@
 import * as Yup from "yup";
-export const CreateUserActions = {
+export const createUserActions = {
     GET_USER_DATA: "GET_USER_DATA",
     DELETE_USER_DATA:"DELETE_USER_DATA",
     SUBMIT_USER_DATA:"SUBMIT_USER_DATA",
